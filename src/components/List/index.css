@@ -1,0 +1,29 @@
+#_self_table_ {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    table-layout: fixed;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+#_self_table_:last-child {
+    border-bottom: 1px solid #e8e8e8;
+
+}
+
+#_s_table_th {
+    border: 1px solid #e8e8e8;
+    background-color: #fafafa;
+    font-size: 14px;
+    text-align: center;
+    padding: 15px;
+}
+
+#_s_table_td {
+    border: 1px solid #e8e8e8;
+    background-color: #ffffff;
+    border-bottom: none;
+    padding: 15px;
+    text-align: center;
+}
