@@ -32,7 +32,8 @@ function routeMatch(
   function routerMapFile(data) {
     data.forEach(item => {
       if (item[options.url]) {
-        let _url = item[options.url].replace(base, "");
+        let _base = base.replace("/", "");
+        let _url = item[options.url].replace(`${_base}/`, "");
         try {
           let routerItem = {
             // 路由路径名
