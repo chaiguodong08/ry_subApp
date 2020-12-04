@@ -42,14 +42,14 @@ if (window.__POWERED_BY_QIANKUN__) {
 
 ### 子应用目录结构
 
-``
+```bash
 core                  
- |-------life-cycle.js     `// 设置子应用生命周期逻辑 // 实例化render`
- |-------public-path.js    `// 单独环境实例化Vue`      
+ |-------life-cycle.js     // 设置子应用生命周期逻辑 // 实例化render
+ |-------public-path.js    // 单独环境实例化Vue    
  |
 signal
- |-------appStore.js       `// 子应用动态通讯机制`
-``
+ |-------appStore.js       // 子应用动态通讯机制
+```
 1.子应用生命周期分为三个阶段 
 1.1）bootstrap 子应用初始化阶段，主要注册主应用下发的工具类、公用组件、公用方法等
 1.2）mount 微应用实例化阶段，主要用于注册应用间的动态通讯，微应用实例化
