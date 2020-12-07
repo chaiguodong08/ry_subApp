@@ -97,7 +97,7 @@ const lifeCycle = () => {
         }
       });
       /**
-       * @name 子应用的加载转态 // 返回false 子应用加载完成
+       * @name 子应用的加载转态 // 返回false子应用加载完成
        */
       props?.loader(false);
     },
