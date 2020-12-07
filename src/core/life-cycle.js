@@ -7,10 +7,6 @@ import animated from 'animate.css';
  * @name ant_design 按需加载
  */
 import ant_design from "@/antd";
-/**
- * @name 自定义组件
- */
-// import self_components from '@/components/install';
 
 /**
  * @name 导入主应用与子应用之间的通讯桥梁
@@ -53,7 +49,6 @@ let instance = null;
 Vue.use(VueRouter);
 Vue.use(ant_design);
 Vue.use(animated);
-// Vue.use(self_components);
 
 //-----------------------------------------------------------------
 // 子应用生命周期逻辑
@@ -100,7 +95,11 @@ const lifeCycle = () => {
         for (let key in i) {
           EMITS[`${key}`] = i[key]
         }
-      })
+      });
+      /**
+       * @name 子应用的加载转态 // 返回false 子应用加载完成
+       */
+      props?.loader(false);
     },
     /**
      * @name 实例化微应用
