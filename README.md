@@ -45,6 +45,21 @@ if (window.__POWERED_BY_QIANKUN__) {
 }
 ```
 
+### webpack配置
+
+* 1.headers: {'Access-Control-Allow-Origin': '*'}  // 允许跨域
+* 2.打包成 umd 格式,为了让 qiankun 拿到其 export 的生命周期函数
+
+```bash
+// 自定义webpack配置
+	configureWebpack: {
+	output: {
+	library: `${name}-[name]`,
+	libraryTarget: 'umd',// 把子应用打包成 umd 库格式
+	jsonpFunction: `webpackJsonp_${name}`
+	}}
+```
+
 ### 子应用目录结构
 
 ```bash
