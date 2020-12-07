@@ -1,4 +1,4 @@
-### 项目开发步骤
+## 项目开发步骤
 
 * 确认模块划分的微应用
 * 全局安装脚手架及创建子应用
@@ -28,7 +28,7 @@ yarn i                // 安装项目所需要的依赖
 npm run dev           // 项目启动
 ```
 
-### 创建子应用注意事项
+## 创建子应用注意事项
 
 * 注意设置 public-path `区分微前端环境和单独运行机制`
 * 端口号必须和注册子应用时的一致，子应用项目名称和注册子应用的名称一致
@@ -45,7 +45,7 @@ if (window.__POWERED_BY_QIANKUN__) {
 }
 ```
 
-### webpack配置
+## webpack配置
 
 * 1.headers: {'Access-Control-Allow-Origin': '*'}  // 允许跨域
 * 2.打包成 umd 格式,为了让 qiankun 拿到其 export 的生命周期函数
@@ -60,7 +60,7 @@ if (window.__POWERED_BY_QIANKUN__) {
 	}}
 ```
 
-### 子应用目录结构
+## 子应用目录结构
 
 ```bash
 core                  
@@ -79,12 +79,12 @@ signal
 1.4）update 可选生命周期钩子，仅使用 loadMicroApp 方式加载微应用时生效，手动加载子应用
 ```
 
-### 子应用路由处理
+## 子应用路由处理
 
 * 实例化VUE-ROUTER   注意与主应用路由保持一致  `history` / *
 * 路由映射真实视图路径,需要区分两种情况：① 当路由只有一级路由的时候 ② 当路由包括二级路由的时候
 
-### 子应用通讯处理 
+## 子应用通讯处理 
 
 *主应用必须注册了通信`initGlobalState`方法
 *注册主应用通过props下发`onGlobalStateChange`、`setGlobalState`方法:
