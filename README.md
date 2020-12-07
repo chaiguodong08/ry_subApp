@@ -78,3 +78,29 @@ signal
 1.3）unmount 微应用销毁阶段，用于销毁实例、路由等防止污染生态
 1.4）update 可选生命周期钩子，仅使用 loadMicroApp 方式加载微应用时生效，手动加载子应用
 ```
+
+### 子应用路由处理
+
+* 实例化VUE-ROUTER   注意与主应用路由保持一致  `history` / *
+* 路由映射真实视图路径,需要区分两种情况：① 当路由只有一级路由的时候 ② 当路由包括二级路由的时候
+
+### 子应用通讯处理 
+
+*主应用必须注册了通信`initGlobalState`方法
+*注册主应用通过props下发`onGlobalStateChange`、`setGlobalState`方法:
+
+```bash
+    /**
+	 * @name 监听应用间通信，并存入store
+     */
+	 props?.onGlobalStateChange?.(
+	 (value, prev) => {
+	 console.log(value, prev);
+	 },
+	 true
+	 );
+	 /**
+	 * @name 改变并全局广播新消息
+	 */
+	 props?.setGlobalState?.({});
+```
