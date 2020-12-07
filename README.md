@@ -34,6 +34,10 @@ npm run dev           // 项目启动
 * 端口号必须和注册子应用时的一致，子应用项目名称和注册子应用的名称一致
 * 开发时开启headers跨域头信息
 * 注意outPut按照规定格式打包
+* 所有的资源（图片/音视频等）都应该放到 src 目录，不要放在 public 或 者static资源放 src 目录，会经过 webpack 处理，能统一注入 publicPath。否则在主项目中会404
+* 避免 css 污染，组件内样式必须加 css-scoped
+* 谨慎使用 position：fixed，在父项目中，这个定位未必准确，应尽量避免使用
+* 给 body 、 document 等绑定的事件，一定要在unmount 周期清除，js 沙箱只劫持了 window.addEventListener，使用 document.body.addEventListener 或者 document.body.onClick 添加的事件并不会被沙箱移除会对其他的页面产生影响
 
 ```js
 if (window.__POWERED_BY_QIANKUN__) {
@@ -53,7 +57,7 @@ signal
 ```
 
 ```bash
-1.子应用生命周期分为三个阶段 
+1.子应用生命周期分为四个阶段 
 1.1）bootstrap 子应用初始化阶段，只会在微应用初始化的时候调用一次，下次微应用重新进入时会直接调用 mount 钩子，不会再重复触发 bootstrap
 1.2）mount 微应用实例化阶段，主要用于注册应用间的动态通讯，微应用实例化
 1.3）unmount 微应用销毁阶段，用于销毁实例、路由等防止污染生态
