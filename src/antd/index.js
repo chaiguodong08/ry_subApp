@@ -22,7 +22,8 @@ import {
   Result,
   Descriptions,
   DatePicker,
-  Card
+  Card,
+  List
 } from 'ant-design-vue';
 
 const ant_design = {
@@ -45,6 +46,7 @@ const ant_design = {
     Vue.use(Descriptions);
     Vue.use(DatePicker);
     Vue.use(Card);
+    Vue.use(List);
     Vue.prototype.$notification = Notification;
     Vue.prototype.$confirm = Modal.confirm
   }
