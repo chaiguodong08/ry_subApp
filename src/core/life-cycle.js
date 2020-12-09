@@ -113,10 +113,12 @@ const lifeCycle = () => {
       render(props);
     },
     /**
-     * @name 微应用销毁时
+     * @name 微应用销毁时 // 注意清空dom ，vue子项目内存泄露问题
      */
     async unmount() {
       instance.$destroy?.();
+      // 清空 dom 防止子项目内存泄露
+      instance.$el.innerHTML = "";
       instance = null;
       router = null;
     },
